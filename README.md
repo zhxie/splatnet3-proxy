@@ -33,6 +33,12 @@ wrangler publish
 curl -X POST -H "Accept-Language: *" -H "Authorization: Bearer <BULLET_TOKEN>" -H "Content-Type: application/json" -H "X-Web-View-Ver: <SPLATNET_VERSION>" -d "{\"extensions\":{\"persistedQuery\":{\"sha256Hash\":\"<HASH>\",\"version\":1}}}" https://splatnet3-proxy.<SUBDOMAIN>.workers.dev/https://api.lp1.av5ja.srv.nintendo.net/api/graphql
 ```
 
+## turf.ink
+
+turf.ink is a public SplatNet 3 Proxy server.
+
+Requests to `https://turf.ink/url` with supported domains will be proxied to `url`.
+
 ## License
 
 SplatNet 3 Proxy is licensed under [the MIT License](/LICENSE).
