@@ -6,6 +6,8 @@ SplatNet 3 Proxy helps proxying SplatNet 3 requests via Cloudflare Workers.
 
 Proxy headers and payloads of supported domains from `https://splatnet3-proxy.<SUBDOMAIN>.workers.dev/url` to `url`.
 
+Notice that requests with header `Host` should be remapped to header `X-Forwarded-Host`.
+
 ### Supported domains
 
 - https://accounts.nintendo.com/connect/1.0.0/api/session_token

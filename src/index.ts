@@ -14,11 +14,16 @@ export default {
     const url = request.url;
     const path = url.split("/").slice(3).join("/");
     if (SUPPORTED_DOMAINS.includes(path)) {
+      const method = request.method;
+      const headers = new Map(request.headers);
+      if (headers.has("X-Forwarded-Host")) {
+        headers.set("Host", headers.get("X-Forwarded-Host")!);
+      }
       return fetch(path, {
-        method: request.method,
-        headers: request.headers,
+        method,
+        headers,
         body:
-          request.method !== "GET" && request.method !== "HEAD"
+          method !== "GET" && method !== "HEAD"
             ? await request.text()
             : undefined,
       });
